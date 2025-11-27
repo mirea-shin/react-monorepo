@@ -1,4 +1,12 @@
 {
   "name": "react-monorepo",
-  "packageManager": "yarn@4.12.0"
+  "packageManager": "yarn@4.12.0",
+  "private": true,
+  "scripts": {
+    "dev:todo": "yarn workspace @dream-coding/todo dev"
+  },
+  "workspaces": [
+    "_template",
+    "lectures/*/*"
+  ]
 }
