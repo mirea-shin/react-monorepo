@@ -3,7 +3,8 @@
   "packageManager": "yarn@4.12.0",
   "private": true,
   "scripts": {
-    "dev:todo": "yarn workspace @dream-coding/todo dev"
+    "dev:todo": "yarn workspace @dream-coding/todo dev",
+    "dev:template": "yarn workspace @template/react-base dev"
   },
   "workspaces": [
     "_template",
