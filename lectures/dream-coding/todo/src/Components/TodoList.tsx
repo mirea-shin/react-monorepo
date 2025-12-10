@@ -4,6 +4,8 @@ import type { TypeTodo, Filter } from "../types/todo";
 import ThemeContext from "../hooks/useTheme";
 import useTheme from "../hooks/useTheme";
 
+import styles from "./todo.module.css";
+
 export default function TodoList({
   todos,
   setTodos,
@@ -44,17 +46,19 @@ export default function TodoList({
   };
 
   return (
-    <ul>
+    <ul className={styles.todoContainer}>
       {getTodoList()?.map((todo) => {
         return (
-          <li key={todo.id}>
-            <span>
+          <li key={todo.id} className={styles.todoItem}>
+            <span className={styles.todo}>
               <input
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => handleTodoCheckBox(todo.id)}
               />
-              <span>{todo.content}</span>
+              <span className={todo.completed ? `${styles.completed}` : ""}>
+                {todo.content}
+              </span>
             </span>
             <span>
               <button type="button" onClick={() => hanldeDeleteTodo(todo.id)}>

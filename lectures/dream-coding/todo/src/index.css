@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+body {
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 전환 효과 */
+}
+
+:root {
+  --primary-color: rgb(227, 227, 174);
+  --secondary-color: rgb(244, 244, 239);
+  --point-color: rgb(21, 75, 27);
+  --text-color: rgb(71, 71, 71);
+}
+
+.dark-theme {
+  --primary-color: rgb(21, 0, 75);
+  --secondary-color: rgb(84, 76, 102);
+  --point-color: rgb(240, 255, 72);
+  --text-color: white;
+}
+
 button {
   cursor: pointer;
+}
+
+input[type="checkbox"] {
+  /* 체크되었을 때의 강조 색상 변경 */
+  accent-color: var(--point-color); /* 빨간 계열 */
 }

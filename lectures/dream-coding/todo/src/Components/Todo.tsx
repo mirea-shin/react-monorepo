@@ -6,6 +6,8 @@ import TodoForm from "./TodoForm";
 
 import type { TypeTodo, Filter } from "../types/todo";
 
+import styles from "./todo.module.css";
+
 export default function Todos() {
   const getTodos = (): TypeTodo[] => {
     const savedTodos = localStorage.getItem("todos");
@@ -20,10 +22,12 @@ export default function Todos() {
   }, [todos]);
 
   return (
-    <div>
-      <Header setFilter={setFilter} />
-      <TodoList todos={todos} setTodos={setTodos} filter={filter} />
-      <TodoForm setTodos={setTodos} todos={todos} />
+    <div className={styles.pageWrapper}>
+      <div className={styles.container}>
+        <Header setFilter={setFilter} filter={filter} />
+        <TodoList todos={todos} setTodos={setTodos} filter={filter} />
+        <TodoForm setTodos={setTodos} todos={todos} />
+      </div>
     </div>
   );
 }

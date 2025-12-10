@@ -3,10 +3,14 @@ import React from "react";
 import type { Filter } from "../types/todo";
 import useTheme from "../hooks/useTheme";
 
+import styles from "./todo.module.css";
+
 export default function Header({
   setFilter,
+  filter,
 }: {
   setFilter: React.Dispatch<React.SetStateAction<Filter>>;
+  filter: Filter;
 }) {
   const { theme, setTheme } = useTheme();
   const filters: Filter[] = ["all", "active", "completed"];
@@ -14,7 +18,7 @@ export default function Header({
   const handleFilterBtn = (selectedFilter: Filter) => setFilter(selectedFilter);
 
   return (
-    <div>
+    <div className={styles.header}>
       <div>
         <button
           onClick={() => {
@@ -25,12 +29,18 @@ export default function Header({
             }
           }}
         >
-          테마 {theme}
+          {theme}
         </button>
       </div>
-      <div>
+      <div className={styles.filterBtnContainer}>
         {filters.map((el) => (
-          <button key={el} onClick={() => handleFilterBtn(el)}>
+          <button
+            key={el}
+            onClick={() => handleFilterBtn(el)}
+            className={`${styles.filterBtn} ${
+              filter === el ? styles.active : ""
+            }`}
+          >
             {el}
           </button>
         ))}

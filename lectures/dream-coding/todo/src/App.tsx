@@ -1,10 +1,11 @@
-import TodoPage from "./Pages/TodoPage";
 import { ThemeProvider } from "./Components/ThemeProvider";
+
+import Todos from "./Components/Todo";
 
 function App() {
   return (
     <ThemeProvider>
-      <TodoPage />
+      <Todos />
     </ThemeProvider>
   );
 }

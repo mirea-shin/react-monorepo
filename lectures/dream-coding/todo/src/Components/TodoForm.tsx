@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import type { TypeTodo } from "../types/todo";
 import { v4 as uuidv4 } from "uuid";
 
+import styles from "./todo.module.css";
+
 export default function TodoForm({
   todos,
   setTodos,
@@ -38,14 +40,14 @@ export default function TodoForm({
   };
 
   return (
-    <form onSubmit={(e) => handleSubmitTodo(e)} className="relative">
+    <form onSubmit={(e) => handleSubmitTodo(e)} className={styles.footer}>
       {err && <div>{err}</div>}
       <input
-        className="border"
+        className={styles.input}
         onChange={(e) => handleChangeContent(e)}
         value={content}
       />
-      <button>Add</button>
+      <button className={styles.addBtn}>Add</button>
     </form>
   );
 }
