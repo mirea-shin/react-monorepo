@@ -20,7 +20,7 @@ export default function Todos() {
   }, [todos]);
 
   return (
-    <div className="border rounded">
+    <div>
       <Header setFilter={setFilter} />
       <TodoList todos={todos} setTodos={setTodos} filter={filter} />
       <TodoForm setTodos={setTodos} todos={todos} />

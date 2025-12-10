@@ -39,7 +39,7 @@ export default function TodoForm({
 
   return (
     <form onSubmit={(e) => handleSubmitTodo(e)} className="relative">
-      {err && <div className="absolute text-red-500 right-1">{err}</div>}
+      {err && <div>{err}</div>}
       <input
         className="border"
         onChange={(e) => handleChangeContent(e)}

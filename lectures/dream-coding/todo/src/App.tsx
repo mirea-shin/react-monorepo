@@ -1,7 +1,12 @@
 import TodoPage from "./Pages/TodoPage";
+import { ThemeProvider } from "./Components/ThemeProvider";
 
 function App() {
-  return <TodoPage />;
+  return (
+    <ThemeProvider>
+      <TodoPage />
+    </ThemeProvider>
+  );
 }
 
 export default App;

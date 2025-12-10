@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import type { TypeTodo, Filter } from "../types/todo";
+import ThemeContext from "../hooks/useTheme";
+import useTheme from "../hooks/useTheme";
 
 export default function TodoList({
   todos,
@@ -11,6 +13,9 @@ export default function TodoList({
   setTodos: React.Dispatch<React.SetStateAction<TypeTodo[]>>;
   filter: Filter;
 }) {
+  const { theme } = useTheme();
+  // const { theme } = useContext(ThemeContext);
+
   const getTodoList = () => {
     switch (filter) {
       case "all":
@@ -42,16 +47,14 @@ export default function TodoList({
     <ul>
       {getTodoList()?.map((todo) => {
         return (
-          <li key={todo.id} className="flex justify-between">
-            <span className="flex gap-x-2">
+          <li key={todo.id}>
+            <span>
               <input
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => handleTodoCheckBox(todo.id)}
               />
-              <span className={`${todo.completed ? "line-through" : ""}`}>
-                {todo.content}
-              </span>
+              <span>{todo.content}</span>
             </span>
             <span>
               <button type="button" onClick={() => hanldeDeleteTodo(todo.id)}>
