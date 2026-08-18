@@ -31,7 +31,7 @@ Rootin은 이 저장소에서 실험을 시작해 별도 포트폴리오 프로�
 ## 저장소 구조
 
 ```text
-react-monorepo/
+react-lab/
 ├── _template/                 # Vite + React + TypeScript 공통 시작점
 ├── lectures/                  # 강의 내용을 출발점으로 확장한 실험
 │   ├── dream-coding/
